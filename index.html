@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .container {
+            max-width: 1200px;
+            background-color: #ECECEC;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        p {
+            margin: 0 0 7px;
+        }
+        
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .wrap {
+            display: flex;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        
+        .el {
+            background-color: #FF9D7C;
+            border: 2px solid #FF6532;
+            margin: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .el>p {
+            border-radius: 50%;
+            background-color: cornsilk;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            height: 25px;
+            align-items: center;
+            width: 25px;
+            line-height: 25px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 46px auto 5px;
+            font-family: monospace;
+        }
+        /* ------- block 1 ------- */
+        
+        .el-1 {
+            flex: 1;
+        }
+        /* ------- block 4 -------  */
+        
+        .t-4 {
+            border: 1px solid;
+        }
+        
+        .el-4 {
+            padding: 10px;
+        }
+        /* ------- block 5 ------ */
+        
+        .w-5 {
+            align-items: flex-start;
+        }
+        /* ------- block 6 ------ */
+        
+        .w-6 {
+            flex-direction: column;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        /* ------- block 7 ------ */
+        
+        .w-7 {
+            justify-content: space-between;
+        }
+        
+        .w-8>.el,
+        .w-7>.el {
+            margin: 5px 0;
+            flex: inherit;
+            flex-basis: 20%;
+        }
+        /* ------- block 8 ------ */
+        
+        .w-8 {
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .w-9>img {
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .grid>img {
+            max-width: 90%;
+            max-height: 90%;
+            transform: rotateZ(159deg);
+        }
+        
+        .frog>img {
+            max-width: 70%;
+            max-height: 70%;
+        }
+        
+        .wrap-editor {
+            font-family: cursive;
+        }
+        
+        .right-field {
+            border: 2px solid;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+        
+        .lilies-fild,
+        .frog-field {
+            margin-bottom: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 500px;
+        }
+        
+        .frog-field {
+            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: baseline;
+        }
+        
+        .lilies-fild {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            flex-wrap: wrap-reverse;
+            align-content: space-between;
+        }
+        
+        .grid,
+        .frog {
+            width: 20%;
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .left-field {
+            margin-bottom: 30px;
+            ;
+        }
+        
+        .grid-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 500px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .grid-field>.grid {
+            width: 20%;
+            outline: 1px solid #e4e4e4;
+            height: 20%;
+            border: none;
+        }
+        
+        .wrap-area,
+        .area {
+            display: flex;
+        }
+        
+        .area {
+            align-items: flex-end;
+            padding: 40px 5px 25px;
+            background: #DDDDDD;
+            border-radius: 5px;
+        }
+        
+        .flex-styles {
+            margin-right: 30px;
+            margin-bottom: 20px;
+            ;
+            align-items: flex-start;
+        }
+        
+        #but {
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #D77C74;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            outline-color: chocolate;
+            outline-style: auto;
+            outline-width: 0 !important;
+            overflow: hidden;
+        }
+        
+        #but:focus,
+        #but::active {
+            border: none;
+            outline-color: chocolate;
+            outline-style: auto;
+            outline-width: 0 !important;
+        }
+        
+        #but:active,
+        button:active {
+            margin-bottom: -1px !important;
+        }
+        
+        .text-bottom,
+        .text-top {
+            margin: 0 0 0 8px;
+        }
+        
+        .text-top {
+            margin-bottom: -22px;
+        }
+        
+        .text-bottom {
+            margin-top: -25px;
+        }
+        
+        @media (max-width: 520px) {
+            .wrap-area {
+                display: block;
+            }
+            .right-field {
+                width: 285px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Flexbox Generator</h3>
+        <a href="https://the-echoplex.net/flexyboxes/?display=flex&flex-direction=column&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto">Flexy Boxes</a>
+        <!-- ------- block 1 ------- -->
+        <h1>flex:1, 1, 1</h1>
+        <div class="wrap w-1">
+            <div class="el el-1">
+                <p>1</p>
+            </div>
+            <div class="el el-1">
+                <p>2</p>
+            </div>
+            <div class="el el-1">
+                <p>3</p>
+            </div>
+        </div>
+        <!-- ------- block 2 ------- -->
+        <h1>flex:1, 1, 3</h1>
+        <div class="wrap w-2">
+            <div class="el el-2" style="flex:1">
+                <p>1</p>
+            </div>
+            <div class="el el-2" style="flex:1">
+                <p>2</p>
+            </div>
+            <div class="el el-2" style="flex:3">
+                <p>3</p>
+            </div>
+        </div>
+        <!-- ------- block 3 ------- -->
+        <h1>flex:1, 1, 1 order: 2, 1, 3 </h1>
+        <div class="wrap w-3">
+            <div class="el el-1" style="order:2">
+                <p>1</p>
+            </div>
+            <div class="el el-1" style="order:1">
+                <p>2</p>
+            </div>
+            <div class="el el-1" style="order:3">
+                <p>3</p>
+            </div>
+        </div>
+        <!-- ------- block 4 ------- -->
+        <h1> align-items: stretch; </h1>
+        <div class="wrap w-4">
+            <div class="el el-1 el-4">
+                <div class="text t-4">
+                    <p>Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Inve ntore sapiente enim inc idunt facilis nemo ea</p>
+                </div>
+            </div>
+            <div class="el el-1 el-4">
+                <div class="text t-4">
+                    <p>Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Inve ntore sapiente enim inc idunt facilis nemo ea</p>
+                </div>
+            </div>
+            <div class="el el-1 el-4">
+                <div class="text t-4">
+                    <p>Lorem ipsum dolor sit amet cons ctetur adipi sicing elit. Optio commodi iure consectetur expl icabo eum quod soluta, ab incidunt in deserunt, enim fugiat magnam dist inctio illum vel at ratione earum delectus?</p>
+                </div>
+            </div>
+        </div>
+        <!-- ------- block 5 ------- -->
+        <h1>align-items: flex-start; </h1>
+        <div class="wrap w-5">
+            <div class="el el-1 el-4">
+                <div class="text t-4">
+                    <p>Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Inven tore sapi ente enim incidunt facilis nemo ea</p>
+                </div>
+            </div>
+            <div class="el el-1 el-4">
+                <div class="text t-4">
+                    <p>Lorem ipsum dolor sit amet cons ectetur adipi sicing elit. Inve ntore sapiente enim incidunt facilis nemo ea</p>
+                </div>
+            </div>
+            <div class="el el-1 el-4">
+                <div class="text t-4">
+                    <p>Lorem ipsum dolor sit amet cons ectetur adipis icing elit. Optio commodi iure consec tetur expl icabo eum quod soluta, ab inci dunt in des erunt, enim fugiat magnam dis tinctio illum vel at rat ione earum dele ctus?</p>
+                </div>
+            </div>
+        </div>
+        <!-- ------- block 6 ------- -->
+        <h1> flex-direction: column;</h1>
+        <div class="wrap w-6">
+            <div class="el el-1">
+                <p>1</p>
+            </div>
+            <div class="el el-1">
+                <p>2</p>
+            </div>
+            <div class="el el-1">
+                <p>3</p>
+            </div>
+        </div>
+        <!-- ------- block 7 ------- -->
+        <h1> flex-basis: 20%; justify-content: space-between;</h1>
+        <div class="wrap w-7">
+            <div class="el el-1">
+                <p>1</p>
+            </div>
+            <div class="el el-1">
+                <p>2</p>
+            </div>
+            <div class="el el-1">
+                <p>3</p>
+            </div>
+        </div>
+        <!-- ------- block 8 ------- -->
+        <h1> flex-basis: 20%; flex-wrap: wrap;</h1>
+        <div class="wrap w-8">
+            <div class="el el-1">
+                <p>1</p>
+            </div>
+            <div class="el el-1">
+                <p>2</p>
+            </div>
+            <div class="el el-1">
+                <p>3</p>
+            </div>
+            <div class="el el-1">
+                <p>4</p>
+            </div>
+            <div class="el el-1">
+                <p>5</p>
+            </div>
+            <div class="el el-1">
+                <p>6</p>
+            </div>
+            <div class="el el-1">
+                <p>7</p>
+            </div>
+
+        </div>
+        <!-- ------- block 9 ------- -->
+        <h1>align-items</h1>
+        <div class="wrap w-9">
+            <img src="img/align-items.png" alt="">
+        </div>
+        <!-- ------- block 10 ------- -->
+        <h1>align-content</h1>
+        <div class="wrap w-9">
+            <img src="img/align-content.png" alt="">
+        </div>
+        <!-- ------- flexbox frogs ------- -->
+        <div class="wrap-editor">
+            <div class="left-field">
+                <h3>Flexbox frog editor</h3>
+                <h4>Test your knowledge flexbox</h4>
+                <p>Put the frogs on the lilies according to the colors. Enter CSS styles in the box below to arrange frogs on lilies by color</p>
+                <p>Use the following styles</p>
+                <div class="wrap-area">
+                    <div class="flex-styles">
+                        <p> <strong>flex-direction;</strong> </p>
+                        <p> <strong> flex-wrap;</strong> </p>
+                        <p> <strong>justify-content;</strong> </p>
+                        <p> <strong> align-content;</strong></p>
+                    </div>
+                    <div>
+                        <h4 class="text-top">.frog{ display:flex</h4>
+
+                        <div class="area">
+                            <textarea name="" id="editor" cols="35" rows="7" value="texttext"></textarea>
+                            <button class="button" id="but">Apply styles</button>
+                        </div>
+                        <h4 class="text-bottom">}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="right-field">
+                <div class="lilies-fild">
+                    <div class="grid"><img src="img/lily-o.svg" alt=""></div>
+                    <div class="grid"><img src="img/lily.svg" alt=""></div>
+                    <div class="grid"><img src="img/lily.svg" alt=""></div>
+                    <div class="grid"><img src="img/lily.svg" alt=""></div>
+                    <div class="grid"><img src="img/lily.svg" alt=""></div>
+                    <div class="grid"><img src="img/lily-y.svg" alt=""></div>
+                    <div class="grid"><img src="img/lily-y.svg" alt=""></div>
+                </div>
+                <div class="frog-field" id="frogField">
+                    <div class="frog frog-o"><img src="img/frog3.svg" alt=""></div>
+                    <div class="frog frog-g"><img src="img/frog1.svg" alt=""></div>
+                    <div class="frog frog-g"><img src="img/frog1.svg" alt=""></div>
+                    <div class="frog frog-g"><img src="img/frog1.svg" alt=""></div>
+                    <div class="frog frog-g"><img src="img/frog1.svg" alt=""></div>
+                    <div class="frog frog-y"><img src="img/frog2.svg" alt=""></div>
+                    <div class="frog frog-y"><img src="img/frog2.svg" alt=""></div>
+
+                </div>
+                <div class="grid-field">
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- -------------------------------------- -->
+    </div>
+    <script>
+        var out = function() {
+            var textArea = document.getElementById('editor').value;
+            document.getElementById('frogField').style.cssText = textArea
+        }
+        var but = document.getElementById('but');
+        but.addEventListener('click', out)
+    </script>
+</body>
+
+</html>
